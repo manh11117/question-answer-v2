@@ -18,4 +18,3 @@ AllCops:
     - 'db/migrate/*.rb'
     - 'db/*.rb'
     - 'bin/**/*'
-    
