@@ -1,7 +1,11 @@
-class Admin::UsersController < ApplicationController
+# frozen_string_literal: true
 
-  def new
-    @user = User.new
+# class Admin::UsersController
+module Admin
+  # Controller for Users
+  class UsersController < ApplicationController
+    def new
+      @user = User.new
+    end
   end
-
 end
