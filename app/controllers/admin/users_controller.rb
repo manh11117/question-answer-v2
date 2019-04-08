@@ -4,8 +4,8 @@
 module Admin
   # Controller for Users
   class UsersController < ApplicationController
-    def new
-      @user = User.new
+    def index
+      @users = User.order(:id).page(params[:page]).per(10)
     end
   end
 end

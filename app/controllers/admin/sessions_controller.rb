@@ -7,10 +7,10 @@ module Admin
 
     def create
       user = User.admin.find_by(email: params[:session][:email].downcase)
-      if user & user.authenticate(params[:session][:password])
-        login
+      if user&.authenticate(params[:session][:password])
+        login(user)
       else
-        login_error
+        login_error(user)
       end
     end
 
@@ -25,12 +25,12 @@ module Admin
       user&.user? ? "Not admin" : "Invalid email/password combination"
     end
 
-    def login
+    def login(user)
       log_in user
-      redirect_to root_url
+      redirect_to admin_users_path
     end
 
-    def login_error
+    def login_error(user)
       flash.now[:danger] = show_message user
       render "new"
     end
