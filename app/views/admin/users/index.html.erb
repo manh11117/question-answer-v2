@@ -1,5 +1,5 @@
 <h1>Listing users</h1>
-<%= link_to 'New user', '#' %>
+<%= link_to 'New user', new_admin_user_path %>
 <br>
 <%= paginate @users %>
 <br>
@@ -13,7 +13,6 @@
     <th scope="col">Role</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
   <% @users.order(:id).each do |user| %>
@@ -23,8 +22,7 @@
       <td><%= user.email %></td>
       <!-- <td><%= user.password_digest %></td> -->
       <td><%= user.role %></td>
-      <td><%= link_to 'Show', '#' %></td>
-      <td><%= link_to 'Edit', '#' %></td>
+      <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
       <td><%= link_to 'Delete', '#'%></td>
     </tr>
   <% end %>
