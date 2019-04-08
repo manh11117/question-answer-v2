@@ -5,15 +5,17 @@
 <br>
 <%= page_entries_info @users, entry_name: 'item' %>
 <table class="table">
-  <tr>
-    <th scope="col">ID</th>
-    <th scope="col">Name</th>
-    <th scope="col">Email</th>
-    <!-- <th scope="col">Pasword</th> -->
-    <th scope="col">Role</th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <!-- <th scope="col">Pasword</th> -->
+      <th scope="col">Role</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
   <% @users.order(:id).each do |user| %>
     <tr>
