@@ -35,8 +35,9 @@ module Admin
 
     def destroy
       @user.destroy
-
-      redirect_to admin_users_path
+      respond_to do |format|
+        format.js
+      end
     end
 
     private
