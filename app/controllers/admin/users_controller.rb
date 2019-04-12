@@ -4,7 +4,7 @@
 module Admin
   # Controller for Users
   class UsersController < ApplicationController
-    before_action :find_user, only: %i[edit update]
+    before_action :find_user, only: %i[edit update destroy]
 
     def index
       @users = User.order(:id).page(params[:page]).per(10)
@@ -30,6 +30,13 @@ module Admin
         redirect_to admin_users_path
       else
         render :edit
+      end
+    end
+
+    def destroy
+      @user.destroy
+      respond_to do |format|
+        format.js
       end
     end
 
