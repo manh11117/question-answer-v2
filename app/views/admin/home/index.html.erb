@@ -1,8 +1,28 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Admin Home Page</h1>
-  <h2>
-    Login for
-    <a href="admin/login">Admin</a>
-    .
-  </h2>
-</div>
+<% if logged_in? %>
+   <div class="center jumbotron">
+     <h1>Welcome to the Admin Home Page</h1>
+
+     <h2>
+       This is my admin home page for the
+       <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+       sample application.
+     </h2>
+
+     <%= link_to "Welcome back #{current_user.name}!", edit_admin_user_path(current_user), class: "btn btn-lg btn-primary" %>
+     <%= link_to "User management", admin_users_path, class: "btn btn-lg btn-primary" %>
+   </div>
+
+<% else %>
+   <div class="center jumbotron">
+     <h1>Welcome to the Sample App</h1>
+
+     <h2>
+       This is my home page for the
+       <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+       sample application.
+     </h2>
+
+     <%= link_to "Sign up now!", admin_signup_path, class: "btn btn-lg btn-primary" %>
+   </div>
+
+<% end %>
