@@ -1,0 +1,29 @@
+<h1>All questions</h1>
+<%= link_to 'Câu hỏi mới', new_admin_question_path %>
+<table class="table">
+  <tr>
+    <th scope="col">Question</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col">Answer</th>
+    <th scope="col">Correct Answer</th>
+    <th></th>
+  </tr>
+
+  <% @questions.each do |question| %>
+  <tr>
+    <td><%= question.text %></td>
+    <td><%= link_to 'Xem', admin_question_path(question) %></td>
+    <td><%= link_to 'Sửa', edit_admin_question_path(question) %></td>
+    <td><%= link_to 'Xóa', admin_question_path(question),
+              method: :delete,
+              data: { confirm: 'Bạn có chắc không?' } %></td>
+    <td><%= question.answers.map{|a| a.text}.join(", ") %></td>
+    <td><%= question.answers.where(flag: true).first.text %></td>
+    <br>
+  </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to 'Trở lại', admin_path %>
