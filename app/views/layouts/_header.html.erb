@@ -3,7 +3,7 @@
    <%= link_to "sample app", root_path, id: "logo" %>
    <nav>
      <ul class="nav navbar-nav navbar-right">
-       <% if logged_in? and controller_path == 'admin/home' or controller_path == 'admin/users'%>
+       <% if logged_in? && (controller_path == 'admin/home' || controller_path == 'admin/users')%>
          <li><%= link_to "#{current_user.name}", edit_admin_user_path(current_user) %></li>
          <li><%= link_to "Log out", admin_logout_path, method: :delete %></li>
        <% else %>
