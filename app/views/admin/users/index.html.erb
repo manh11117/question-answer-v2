@@ -1,8 +1,6 @@
 <h1>Listing users</h1>
 <%= link_to 'New user', new_admin_user_path %>
-<br>
 <%= paginate @users %>
-<br>
 <%= page_entries_info @users, entry_name: 'item' %>
 <table class="table">
   <thead>

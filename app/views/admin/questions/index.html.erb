@@ -1,30 +1,34 @@
-<h1>Listing questions</h1>
->>>>>>> 5c0975a... ticket9794 : Design and create questions and answers tables and models
-<%= link_to 'Câu hỏi mới', new_admin_question_path %>
+<h1>Listing Questions</h1>
+<%= link_to 'New question', new_admin_question_path %>
+<%= paginate @questions %>
+<%= page_entries_info @questions, entry_name: 'item' %>
 <table class="table">
-  <tr>
-    <th scope="col">Question</th>
-    <th scope="col"></th>
-    <th scope="col"></th>
-    <th scope="col"></th>
-    <th scope="col">Answer</th>
-    <th scope="col">Correct Answer</th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Question</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Answer</th>
+      <th scope="col">Correct Answer</th>
+    </tr>
+  </thead>
 
   <% @questions.each do |question| %>
   <tr>
+    <td><%= question.id %></td>
     <td><%= question.text %></td>
-    <td><%= link_to 'Xem', admin_question_path(question) %></td>
-    <td><%= link_to 'Sửa', edit_admin_question_path(question) %></td>
-    <td><%= link_to 'Xóa', admin_question_path(question),
+    <td><%= link_to 'Show', admin_question_path(question) %></td>
+    <td><%= link_to 'Edit', edit_admin_question_path(question) %></td>
+    <td><%= link_to 'Delete', admin_question_path(question),
               method: :delete,
-              data: { confirm: 'Bạn có chắc không?' } %></td>
+              data: { confirm: 'You sure?' } %></td>
     <td><%= question.answers.map{|a| a.text}.join(", ") %></td>
-    <td><%= question.answers.where(flag: true).first.text %></td>
+    <td><%= question.answers.find_by(flag: true).text %></td>
     <br>
   </tr>
   <% end %>
 </table>
 <br>
-<%= link_to 'Trở lại', admin_path %>
+<%= link_to 'Back', admin_path %>
