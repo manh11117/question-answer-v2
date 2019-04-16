@@ -3,6 +3,8 @@
 module Admin
   # class HomeController
   class HomeController < ApplicationController
-    def index; end
+    def index
+      @questions = Question.all
+    end
   end
 end

@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     resources :users
     resources :sessions
     resources :questions do
+<<<<<<< HEAD
       resources :answes
+=======
+      resources :answers
+>>>>>>> 5c0975a... ticket9794 : Design and create questions and answers tables and models
     end
     get "/signup", to: "users#new"
     get "/login", to: "sessions#new"
