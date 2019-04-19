@@ -9,7 +9,6 @@
       <th scope="col">Question</th>
       <th scope="col"></th>
       <th scope="col"></th>
-      <th scope="col"></th>
       <th scope="col">Answer</th>
       <th scope="col">Correct Answer</th>
     </tr>
@@ -24,9 +23,8 @@
     <td><%= link_to 'Delete', admin_question_path(question),
               method: :delete,
               data: { confirm: 'You sure?' } %></td>
-    <td><%= question.answers.map{|a| a.text}.join(", ") %></td>
-    <td><%= question.answers.find_by(flag: true).text %></td>
-    <br>
+    <td><%= question.answers.map{|a| a.text}.join(", ") if question.answers.present? %></td>
+    <td><%= question.answers.find_by(flag: true)&.text if question.answers.present? %></td>
   </tr>
   <% end %>
 </table>

@@ -2,12 +2,12 @@
 
 # class AnswerValidator
 class AnswerValidator < ActiveModel::EachValidator
-  def validate_each(record, attribute)
-    value = record.question.answers.where(flag: true).count
-    record.errors[attribute] << adderror unless value <= 1
+  def validate_each(record, attribute, _value)
+    flag_count = record.answers.map(&:flag).count(true) unless record.answers.nil?
+    record.errors[attribute] << adderror unless flag_count == 1
   end
 end
 
 def adderror
-  (options[:message] || "A question has a maximum of one correct answer")
+  (options[:message] || "has one correct answer")
 end

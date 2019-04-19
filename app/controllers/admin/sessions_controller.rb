@@ -27,7 +27,7 @@ module Admin
 
     def login(user)
       log_in user
-      redirect_to admin_users_path
+      redirect_to admin_path
     end
 
     def login_error(user)
