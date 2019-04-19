@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     get "/", to: "home#index"
     resources :users
     resources :sessions
-    resources :questions
+    resources :questions do
+      resources :answers
+    end
     get "/signup", to: "users#new"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
