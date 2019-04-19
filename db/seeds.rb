@@ -15,28 +15,73 @@ end
 
 Question.destroy_all
 Answer.destroy_all
-q = Question.create(id:  1, text: "Which one is not an object oriented programming language?")
-q.answers.create(id:  1, question_id: q.id, text: "Java", flag: false)
-q.answers.create(id:  2, question_id: q.id, text: "C#", flag: false)
-q.answers.create(id:  3, question_id: q.id, text: "C++", flag: false)
-q.answers.create(id:  4, question_id: q.id, text: "C", flag: true)
-q = Question.create(id:  2, text: "Which language is used for styling web pages?")
-q.answers.create(id:  5, question_id: q.id, text: "HTML", flag: false)
-q.answers.create(id:  6, question_id: q.id, text: "JQuery", flag: false)
-q.answers.create(id:  7, question_id: q.id, text: "CSS", flag: true)
-q.answers.create(id:  8, question_id: q.id, text: "XML", flag: false)
-q = Question.create(id:  3, text: "There are ____ main components of object oriented programming.")
-q.answers.create(id:  9, question_id: q.id, text: "1", flag: false)
-q.answers.create(id:  10, question_id: q.id, text: "6", flag: false)
-q.answers.create(id:  11, question_id: q.id, text: "2", flag: false)
-q.answers.create(id:  12, question_id: q.id, text: "4", flag: true)
-q = Question.create(id:  4, text: "Which language is used for web apps?")
-q.answers.create(id:  13, question_id: q.id, text: "PHP", flag: false)
-q.answers.create(id:  14, question_id: q.id, text: "Python", flag: false)
-q.answers.create(id:  15, question_id: q.id, text: "Javascript", flag: false)
-q.answers.create(id:  16, question_id: q.id, text: "All", flag: true)
-q = Question.create(id:  5, text: "MVC is a ____.")
-q.answers.create(id:  17, question_id: q.id, text: "Language", flag: false)
-q.answers.create(id:  18, question_id: q.id, text: "Library", flag: false)
-q.answers.create(id:  19, question_id: q.id, text: "Framework", flag: true)
-q.answers.create(id:  20, question_id: q.id, text: "All", flag: false)
+Question.create(id:  1, text: "Which one is not an object oriented programming language?", answers_attributes: {
+  0 => {
+    text: "Java", flag: false
+  },
+  1 => {
+    text: "C#", flag: false
+  },
+  2 => {
+    text: "C++", flag: false
+  },
+  3 => {
+    text: "C#", flag: true
+  },
+})
+Question.create(id:  2, text: "Which language is used for styling web pages?", answers_attributes: {
+  0 => {
+    text: "HTML", flag: false
+  },
+  1 => {
+    text: "JQuery", flag: false
+  },
+  2 => {
+    text: "CSS", flag: true
+  },
+  3 => {
+    text: "XML", flag: false
+  },
+})
+Question.create(id:  3, text: "There are ____ main components of object oriented programming.", answers_attributes: {
+  0 => {
+    text: "1", flag: false
+  },
+  1 => {
+    text: "6", flag: false
+  },
+  2 => {
+    text: "2", flag: false
+  },
+  3 => {
+    text: "4", flag: true
+  },
+})
+Question.create(id:  4, text: "Which language is used for web apps?", answers_attributes: {
+  0 => {
+    text: "PHP", flag: false
+  },
+  1 => {
+    text: "Python", flag: false
+  },
+  2 => {
+    text: "Javascript", flag: false
+  },
+  3 => {
+    text: "All", flag: true
+  },
+})
+Question.create(id:  5, text: "MVC is a ____.", answers_attributes: {
+  0 => {
+    text: "Language", flag: false
+  },
+  1 => {
+    text: "Library", flag: false
+  },
+  2 => {
+    text: "Framework", flag: true
+  },
+  3 => {
+    text: "All", flag: false
+  },
+})
