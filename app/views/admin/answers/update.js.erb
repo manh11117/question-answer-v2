@@ -1,0 +1,4 @@
+<% @question.answers.each do |answer| %>
+  $("#correct_form-<%= answer.id %>").html("<%= escape_javascript(render('admin/questions/correct', answer: answer)) %>");
+<% end %>
+$("#correct_form-<%= @answer.id %>").html("<%= escape_javascript(render('admin/questions/uncorrect', answer: @answer)) %>");
