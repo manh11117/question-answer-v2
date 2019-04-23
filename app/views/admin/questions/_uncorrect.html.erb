@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 <h1><strong>
   <%= answer.text %>
 </strong></h1>
 <%= button_tag "Correct", class: "btn btn-primary btn-block", disabled: true %>
+=======
+<strong>
+  <%= answer.text %>
+</strong>
+<%= form_with model: [:admin, answer] do |form| %>
+  <div><%= hidden_field_tag :id, answer.id %></div>
+  <div><%= hidden_field_tag :flag, answer.flag %></div>
+  <%= form.submit "Uncorrect", class: "btn btn-primary", disabled: true %>
+<% end %>
+>>>>>>> Choose right answer on the question detail page (using ajax)
