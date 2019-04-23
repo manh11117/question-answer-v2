@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-User.create!(id:  1, name:  "admin", email: "admin@gmail.com", password: "password", role: 0)
+User.create!(id:  1, name:  "Admin", email: "admin@gmail.com", password: "password", role: 0)
 
 49.times do |n|
-  User.create!(id:  n+2, name:  "user#{n+1}", email: "user#{n+1}@gmail.com", password: "password", role: [0, 1].sample)
+  User.create!(id:  n+2, name:  "User#{n+1}", email: "user#{n+1}@gmail.com", password: "password", role: [0, 1].sample)
 end
 
 Question.destroy_all
@@ -26,7 +26,7 @@ Question.create(id:  1, text: "Which one is not an object oriented programming l
     text: "C++", flag: false
   },
   3 => {
-    text: "C#", flag: true
+    text: "C", flag: true
   },
 })
 Question.create(id:  2, text: "Which language is used for styling web pages?", answers_attributes: {

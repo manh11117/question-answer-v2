@@ -7,6 +7,10 @@ module Admin
       @questions = Question.order(:id).page(params[:page]).per(10)
     end
 
+    def show
+      @question = Question.find(params[:id])
+    end
+
     def new
       @question = Question.new
       4.times { @question.answers.build }
