@@ -1,9 +1,5 @@
 <% if answer.flag? %>
-    <strong>
-      <%= "Answer #{answer_counter + 1}: " %>
-      <%= answer.text %>
-    </strong><br>
+    <%= render 'correct_form',answer: answer %>
 <% else %>
-      <%= "Answer #{answer_counter + 1}: " %>
-      <%= answer.text %><br>
+    <%= render 'correct_form',answer: answer %>
 <% end %>

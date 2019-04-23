@@ -1,0 +1,7 @@
+<div id="correct_form-<%= answer.id %>">
+  <% if answer.flag? %>
+      <%= render 'uncorrect',answer: answer %>
+  <% else %>
+      <%= render 'correct',answer: answer %>
+  <% end %>
+</div>
