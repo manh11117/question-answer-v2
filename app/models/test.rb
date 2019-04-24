@@ -5,4 +5,5 @@ class Test < ApplicationRecord
                    length: { minimum: 3 },
                    uniqueness: true,
                    testanswer: true
+  accepts_nested_attributes_for :testanswers, allow_destroy: true
 end
