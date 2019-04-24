@@ -6,8 +6,10 @@ class AnswerValidator < ActiveModel::EachValidator
     flag_count = record.answers.map(&:flag).count(true) unless record.answers.nil?
     record.errors[attribute] << adderror unless flag_count == 1
   end
-end
 
-def adderror
-  (options[:message] || "has one correct answer")
+  private
+
+  def adderror
+    (options[:message] || "has one correct answer")
+  end
 end
