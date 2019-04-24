@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_020138) do
+ActiveRecord::Schema.define(version: 2019_04_24_040435) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text"
@@ -27,6 +27,26 @@ ActiveRecord::Schema.define(version: 2019_04_16_020138) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "testanswers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text"
+    t.bigint "test_id"
+    t.bigint "question_id"
+    t.bigint "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_testanswers_on_answer_id"
+    t.index ["question_id"], name: "index_testanswers_on_question_id"
+    t.index ["test_id"], name: "index_testanswers_on_test_id"
+  end
+
+  create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tests_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -37,4 +57,8 @@ ActiveRecord::Schema.define(version: 2019_04_16_020138) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "testanswers", "answers"
+  add_foreign_key "testanswers", "questions"
+  add_foreign_key "testanswers", "tests"
+  add_foreign_key "tests", "users"
 end
