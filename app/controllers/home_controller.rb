@@ -2,5 +2,9 @@
 
 # class HomeController
 class HomeController < ApplicationController
-  def index; end
+  def index
+    if !logged_in?
+      @questions = Question.all.sample(3)
+    end
+  end
 end

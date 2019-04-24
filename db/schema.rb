@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2019_04_24_040435) do
   end
 
   create_table "testanswers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "text"
     t.bigint "test_id"
     t.bigint "question_id"
     t.bigint "answer_id"
@@ -40,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_040435) do
   end
 
   create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "text"
+    t.integer "score"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

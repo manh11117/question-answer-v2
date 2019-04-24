@@ -1,7 +1,7 @@
 class CreateTests < ActiveRecord::Migration[5.2]
   def change
     create_table :tests do |t|
-      t.text :text
+      t.integer :score
       t.references :user, foreign_key: true
 
       t.timestamps
@@ -9,4 +9,4 @@ class CreateTests < ActiveRecord::Migration[5.2]
   end
 end
 
-# rails g model Test text:text user:references
+# rails g model Test score:integer user:references
