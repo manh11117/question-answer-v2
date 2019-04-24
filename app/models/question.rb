@@ -7,4 +7,5 @@ class Question < ApplicationRecord
                    length: { minimum: 3 },
                    uniqueness: true,
                    answer: true
+  accepts_nested_attributes_for :answers, allow_destroy: true
 end
