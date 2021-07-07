@@ -1,14 +1,10 @@
 <h1>Show question</h1>
-
 <strong>Question:</strong>
-  <%= @question.text %>
+  <h1><%= @question.text %>
   <%= link_to 'Delete', admin_question_path(@question),
               method: :delete,
-              data: { confirm: 'You sure?' } %><br>
-
+              data: { confirm: 'You sure?' } %><br></h1>
 <strong>Answers:</strong><br>
-
 <%= render @question.answers %>
-
 <%= link_to 'Edit', edit_admin_question_path(@question) %> |
 <%= link_to 'Back', admin_questions_path %>

@@ -1,0 +1,6 @@
+<h1><%= answer.text %></h1>
+<%= form_with model: [:admin, answer] do |form| %>
+  <div><%= hidden_field_tag :id, answer.id %></div>
+  <div><%= hidden_field_tag :flag, answer.flag %></div>
+  <%= form.submit "Uncorrect", data: { disable_with: "Please wait..." }, class: "btn" %>
+<% end %>
